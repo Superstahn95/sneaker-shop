@@ -1,9 +1,9 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
-import SignUpScreen from "./screens/auth/SignUp.screen";
+import StackNavigation from "./navigation/stack/Stack";
 
 export default function App() {
-  return <SignUpScreen />;
+  return <StackNavigation />;
 }
 
 const styles = StyleSheet.create({

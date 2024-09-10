@@ -11,7 +11,7 @@ import LogoText from "../../components/logo/LogoText";
 import { useNavigation } from "@react-navigation/native";
 import Button from "../../components/button/Button";
 
-export default function Welcome() {
+export default function WelcomeScreen() {
   const navigation = useNavigation();
   const goToSignUp = () => {
     //@ts-ignore
