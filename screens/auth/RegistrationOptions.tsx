@@ -10,7 +10,7 @@ import ViewWrapper from "../../components/wrapper/ViewWrapper";
 import ColoredText from "../../components/text/ColoredText";
 import GoogleButton from "./components/GoogleButton";
 
-export default function SignUpScreen() {
+export default function RegistrationOptionsScreen() {
   const [email, setEmail] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
   const navigation = useNavigation();
