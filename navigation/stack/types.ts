@@ -59,3 +59,8 @@ export type ProductScreenProps = CompositeScreenProps<
   NativeStackScreenProps<ProductStackParamList, "Product">,
   BottomTabScreenProps<AppStackParamList>
 >;
+
+export type RegistrationSuccessScreenProps = CompositeScreenProps<
+  NativeStackScreenProps<AuthStackParamList, "RegistrationSuccess">,
+  BottomTabScreenProps<AppStackParamList>
+>;
