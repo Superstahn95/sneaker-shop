@@ -64,3 +64,5 @@ export type RegistrationSuccessScreenProps = CompositeScreenProps<
   NativeStackScreenProps<AuthStackParamList, "RegistrationSuccess">,
   BottomTabScreenProps<AppStackParamList>
 >;
+
+export type HomeScreenProps = BottomTabScreenProps<AppStackParamList, "Home">;
