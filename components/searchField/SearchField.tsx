@@ -10,7 +10,7 @@ export default function SearchField() {
           left: 20,
         }}
       >
-        <Image source={require("@/assets/images/search.png")} />
+        <Image source={require("../../assets/images/search.png")} />
       </View>
       <TextInput
         style={styles.textInput}

@@ -8,18 +8,18 @@ import {
 } from "react-native";
 import { Colors } from "../../utils/colors";
 import LogoText from "../../components/logo/LogoText";
-import { useNavigation } from "@react-navigation/native";
 import Button from "../../components/button/Button";
+import { WelcomeScreenProps } from "../../navigation/stack/types";
 
-export default function WelcomeScreen() {
-  const navigation = useNavigation();
+export default function WelcomeScreen({
+  navigation,
+  route,
+}: WelcomeScreenProps) {
   const goToSignUp = () => {
-    //@ts-ignore
-    navigation.navigate("Signup");
+    navigation.navigate("RegistrationOption");
   };
   const goToLogin = () => {
-    //@ts-ignore
-    navigation.navigate("Login");
+    // navigation.navigate("Login");
   };
   return (
     <SafeAreaView style={styles.container}>
@@ -31,7 +31,7 @@ export default function WelcomeScreen() {
       </View>
       {/* second item */}
       <View>
-        <Image source={require("@/assets/images/welcome-sneakers.png")} />
+        <Image source={require("../../assets/images/welcome-sneakers.png")} />
       </View>
       {/* third item */}
       <View>

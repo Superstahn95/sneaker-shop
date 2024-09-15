@@ -59,27 +59,27 @@ export const products = [
 ];
 
 export const imageMap: ImageMap = {
-  "sneakers2.png": require("@/assets/images/sneakers2.png"),
-  "sneakers3.png": require("@/assets/images/sneakers3.png"),
-  "sneakers4.png": require("@/assets/images/sneakers4.png"),
-  "sneakers5.png": require("@/assets/images/sneakers5.png"),
-  "sneakers6.png": require("@/assets/images/sneakers6.png"),
+  "sneakers2.png": require("./images/sneakers2.png"),
+  "sneakers3.png": require("./images/sneakers3.png"),
+  "sneakers4.png": require("./images/sneakers4.png"),
+  "sneakers5.png": require("./images/sneakers5.png"),
+  "sneakers6.png": require("./images/sneakers6.png"),
 };
 
 export const discountItems = [
   {
     _id: "1",
-    image: "@/assets/images/sneakers5.png",
+    image: "./images/sneakers5.png",
     percentageDiscount: 50,
   },
   {
     _id: "2",
-    image: "@/assets/images/sneakers4.png",
+    image: "./images/sneakers4.png",
     percentageDiscount: 40,
   },
   {
     _id: "3",
-    image: "@/assets/images/sneakers6.png",
+    image: "./images/sneakers6.png",
     percentageDiscount: 70,
   },
 ];

@@ -9,6 +9,7 @@ import Button from "../../components/button/Button";
 import ViewWrapper from "../../components/wrapper/ViewWrapper";
 import ColoredText from "../../components/text/ColoredText";
 import GoogleButton from "./components/GoogleButton";
+import AppleButton from "./components/AppleButton";
 
 export default function RegistrationOptionsScreen() {
   const [email, setEmail] = useState<string>("");
@@ -75,11 +76,12 @@ export default function RegistrationOptionsScreen() {
             title="sign in with google"
             onPress={() => console.log("google sign in")}
           /> */}
-          <GoogleButton />
-          <Button
+          {/* <GoogleButton /> */}
+          {/* <Button
             title="sign in with apple"
             onPress={() => console.log("apple sign in")}
-          />
+          /> */}
+          <AppleButton />
         </ViewWrapper>
       </View>
     </SafeAreaView>

@@ -2,6 +2,7 @@ import {
   StyleSheet,
   View,
   SafeAreaView,
+  Text,
   Image,
   TouchableOpacity,
 } from "react-native";
@@ -23,19 +24,18 @@ export default function HomeScreen({ navigation, route }: HomeScreenProps) {
         <View style={styles.searchContainer}>
           <SearchField />
           <TouchableOpacity style={styles.filterContainer}>
-            <Image source={require("@/assets/images/filter.png")} />
+            <Image source={require("../../assets/images/filter.png")} />
           </TouchableOpacity>
         </View>
-        <View
+        {/* <View
           style={{
             height: "30%",
             marginVertical: 19,
             overflow: "hidden",
-            // backgroundColor: Colors.primary,
           }}
         >
           <Promo />
-        </View>
+        </View> */}
         {/* categories */}
         <Categories />
         {/* products */}

@@ -36,23 +36,35 @@ export type AppStackParamList = {
   Search: undefined;
   ProductStack: NavigatorScreenParams<ProductStackParamList>;
   CartStack: NavigatorScreenParams<CartStackParamList>;
-  AuthStack: NavigatorScreenParams<AuthStackParamList>;
+  //   AuthStack: NavigatorScreenParams<AuthStackParamList>; // singled this out to a different stack
 };
 
 // types for routes
-export type OtpScreenProps = CompositeScreenProps<
-  NativeStackScreenProps<AuthStackParamList, "Otp">,
-  BottomTabScreenProps<AppStackParamList>
+// export type OtpScreenProps = CompositeScreenProps<
+//   NativeStackScreenProps<AuthStackParamList, "Otp">,
+//   BottomTabScreenProps<AppStackParamList>
+// >;
+
+export type OtpScreenProps = NativeStackScreenProps<AuthStackParamList, "Otp">;
+
+// export type SignUpScreenProps = CompositeScreenProps<
+//   NativeStackScreenProps<AuthStackParamList, "SignUp">,
+//   BottomTabScreenProps<AppStackParamList>
+// >;
+
+export type SignUpScreenProps = NativeStackScreenProps<
+  AuthStackParamList,
+  "SignUp"
 >;
 
-export type SignUpScreenProps = CompositeScreenProps<
-  NativeStackScreenProps<AuthStackParamList, "SignUp">,
-  BottomTabScreenProps<AppStackParamList>
->;
+// export type SecondSignUpScreenProps = CompositeScreenProps<
+//   NativeStackScreenProps<AuthStackParamList, "SecondSignUpScreen">,
+//   NativeStackScreenProps<AppStackParamList>
+// >;
 
-export type SecondSignUpScreenProps = CompositeScreenProps<
-  NativeStackScreenProps<AuthStackParamList, "SecondSignUpScreen">,
-  NativeStackScreenProps<AppStackParamList>
+export type SecondSignUpScreenProps = NativeStackScreenProps<
+  AuthStackParamList,
+  "SecondSignUpScreen"
 >;
 
 export type ProductScreenProps = CompositeScreenProps<
@@ -60,9 +72,19 @@ export type ProductScreenProps = CompositeScreenProps<
   BottomTabScreenProps<AppStackParamList>
 >;
 
-export type RegistrationSuccessScreenProps = CompositeScreenProps<
-  NativeStackScreenProps<AuthStackParamList, "RegistrationSuccess">,
+export type WelcomeScreenProps = CompositeScreenProps<
+  NativeStackScreenProps<AuthStackParamList, "Welcome">,
   BottomTabScreenProps<AppStackParamList>
+>;
+
+// export type RegistrationSuccessScreenProps = CompositeScreenProps<
+//   NativeStackScreenProps<AuthStackParamList, "RegistrationSuccess">,
+//   BottomTabScreenProps<AppStackParamList>
+// >;
+
+export type RegistrationSuccessScreenProps = NativeStackScreenProps<
+  AuthStackParamList,
+  "RegistrationSuccess"
 >;
 
 export type HomeScreenProps = BottomTabScreenProps<AppStackParamList, "Home">;

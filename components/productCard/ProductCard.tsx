@@ -23,12 +23,7 @@ export default function ProductCard({
   index,
   _id,
 }: CardProps) {
-  // navigation.navigate('Details', {
-  //     itemId: 86,
-  //     otherParam: 'anything you want here',
-  //   });
-  const { navigation, route } = useNavigation<ProductScreenProps>();
-  // handle navigation ??
+  const { navigation } = useNavigation<ProductScreenProps>();
 
   let shoeText: string;
   if (gender.toLowerCase() === "men") {
@@ -48,7 +43,7 @@ export default function ProductCard({
       ]}
     >
       <View style={styles.cartHighlight}>
-        <Image source={require("@/assets/images/cart.png")} />
+        <Image source={require("../../assets/images/cart.png")} />
       </View>
       {/* image view */}
       <View

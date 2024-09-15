@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   button: {
-    width: 200,
-    height: 44,
+    width: "100%",
+    height: 54,
   },
 });
