@@ -29,22 +29,10 @@ export type TabBarParamList = {
   Profile: undefined;
 };
 
-export type ProductStackParamList = {
-  Products: undefined;
-  Product: { productId: string };
-};
-
 export type CartStackParamList = {
   Cart: undefined;
   Checkout: undefined;
 };
-// export type AppStackParamList = {
-//   Home: undefined;
-//   Search: undefined;
-//   ProductStack: NavigatorScreenParams<ProductStackParamList>;
-//   CartStack: NavigatorScreenParams<CartStackParamList>;
-//   //   AuthStack: NavigatorScreenParams<AuthStackParamList>; // singled this out to a different stack
-// };
 
 export type AppStackParamList = {
   Tab: NavigatorScreenParams<TabBarParamList>;
@@ -64,24 +52,45 @@ export type SecondSignUpScreenProps = NativeStackScreenProps<
   "SecondSignUpScreen"
 >;
 
-export type ProductScreenProps = CompositeScreenProps<
-  NativeStackScreenProps<ProductStackParamList, "Product">,
-  BottomTabScreenProps<AppStackParamList>
+export type WelcomeScreenProps = NativeStackScreenProps<
+  AuthStackParamList,
+  "Welcome"
 >;
-
-export type WelcomeScreenProps = CompositeScreenProps<
-  NativeStackScreenProps<AuthStackParamList, "Welcome">,
-  BottomTabScreenProps<AppStackParamList>
->;
-
 export type RegistrationSuccessScreenProps = NativeStackScreenProps<
   AuthStackParamList,
   "RegistrationSuccess"
 >;
 
-// export type HomeScreenProps = BottomTabScreenProps<AppStackParamList, "Home">;
+export type ProductStackParamList = {
+  Products: undefined;
+  Product: { productId: string };
+};
+
+export type ProductScreenProps = NativeStackScreenProps<
+  AppStackParamList,
+  "Product"
+>;
+
+export type CheckOutScreenProps = NativeStackScreenProps<
+  AppStackParamList,
+  "Checkout"
+>;
+
+export type CartScreenProps = CompositeScreenProps<
+  BottomTabScreenProps<TabBarParamList, "Cart">,
+  NativeStackScreenProps<AppStackParamList>
+>;
 export type HomeScreenProps = CompositeScreenProps<
   BottomTabScreenProps<TabBarParamList, "Home">,
   NativeStackScreenProps<AppStackParamList>
 >;
-// export type ProductScreenProps = NativeStackScreenProps<AppStackParamList, "">
+
+export type FavouritesScreenProps = CompositeScreenProps<
+  BottomTabScreenProps<TabBarParamList, "Favourites">,
+  NativeStackScreenProps<AppStackParamList>
+>;
+
+export type ProfileScreenProp = CompositeScreenProps<
+  BottomTabScreenProps<TabBarParamList, "Profile">,
+  NativeStackScreenProps<AppStackParamList>
+>;
