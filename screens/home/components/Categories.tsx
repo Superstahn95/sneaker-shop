@@ -14,7 +14,7 @@ export default function Categories() {
   // code might need to be restructured to suit typescript
   return (
     <View>
-      <Text style={{ fontSize: 20, fontWeight: "bold" }}>Category</Text>
+      <Text style={{ fontSize: 20, fontWeight: "bold" }}>Categories</Text>
       <FlatList
         style={{ marginTop: 10 }}
         data={categories}

@@ -1,10 +1,11 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { AppStackParamList } from "./types";
-import AuthStack from "./AuthStack";
-import ProductStack from "./ProductStack";
+import { TabBarParamList } from "./types";
+import CartScreen from "../../screens/cart/Cart";
 import HomeScreen from "../../screens/home/Home";
+import FavouritesScreen from "../../screens/favourites/Favourites";
+import ProfileScreen from "../../screens/profile/Profile";
 
-const Tab = createBottomTabNavigator<AppStackParamList>();
+const Tab = createBottomTabNavigator<TabBarParamList>();
 
 export default function TabNavigator() {
   return (
@@ -14,11 +15,11 @@ export default function TabNavigator() {
         component={HomeScreen}
         options={{ headerShown: false }}
       />
-      <Tab.Screen
-        name="ProductStack"
-        component={ProductStack}
-        options={{ headerShown: false }}
-      />
+      <Tab.Screen name="Cart" component={CartScreen} />
+      <Tab.Screen name="Favourites" component={FavouritesScreen} />
+      <Tab.Screen name="Profile" component={ProfileScreen} />
     </Tab.Navigator>
   );
 }
+
+//rearrange this by nesting the tab stack inside a stack navigator

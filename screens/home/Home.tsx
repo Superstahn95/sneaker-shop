@@ -27,7 +27,7 @@ export default function HomeScreen({ navigation, route }: HomeScreenProps) {
             <Image source={require("../../assets/images/filter.png")} />
           </TouchableOpacity>
         </View>
-        {/* <View
+        <View
           style={{
             height: "30%",
             marginVertical: 19,
@@ -35,7 +35,7 @@ export default function HomeScreen({ navigation, route }: HomeScreenProps) {
           }}
         >
           <Promo />
-        </View> */}
+        </View>
         {/* categories */}
         <Categories />
         {/* products */}

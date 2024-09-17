@@ -8,8 +8,6 @@ import Button from "../../components/button/Button";
 import ViewWrapper from "../../components/wrapper/ViewWrapper";
 import ColoredText from "../../components/text/ColoredText";
 import OtpField from "../../components/otp/OtpField";
-// imported for typechecking route paramaters
-import { RootStackParamList } from "../../navigation/stack/Stack";
 import { OtpScreenProps } from "../../navigation/stack/types";
 
 interface VerifyCodeType {

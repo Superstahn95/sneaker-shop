@@ -1,4 +1,5 @@
 import {
+  CompositeScreenProps,
   NavigationContainer,
   NavigatorScreenParams,
 } from "@react-navigation/native";
@@ -6,32 +7,66 @@ import {
   createNativeStackNavigator,
   NativeStackScreenProps,
 } from "@react-navigation/native-stack";
-import OnboardingScreen from "../../screens/onboardng/Onboarding";
-import WelcomeScreen from "../../screens/welcome/Welcome";
-import SignUpScreen from "../../screens/auth/RegistrationOptions";
+import { BottomTabScreenProps } from "@react-navigation/bottom-tabs";
+import TabNavigator from "./Tab";
+import ProductScreen from "../../screens/product/Product";
+import CheckoutScreen from "../../screens/checkout/Checkout";
 
-export type RootStackParamList = {
-  Otp: { email: string; activationToken: string };
-  Onboarding: undefined;
-  Welcome: undefined;
-  SignUp: undefined;
+export type ProductStackParamList = {
+  Products: undefined;
+  Product: { productId: string };
 };
 
-export type TabParamList = {
-  Home: NavigatorScreenParams<RootStackParamList>;
-  Profile: { userId: string };
+export type TabBarParamList = {
+  Home: undefined;
+  Cart: undefined;
+  Favourites: undefined;
+  Profile: undefined;
 };
 
-const Stack = createNativeStackNavigator<RootStackParamList>();
+export type AppStackParamList = {
+  Tab: NavigatorScreenParams<TabBarParamList>;
+  Product: { productId: string };
+  Checkout: undefined;
+};
+
+export type ProductScreenProps = NativeStackScreenProps<
+  AppStackParamList,
+  "Product"
+>;
+
+export type CheckOutScreenProps = NativeStackScreenProps<
+  AppStackParamList,
+  "Checkout"
+>;
+
+export type CartScreenProps = CompositeScreenProps<
+  BottomTabScreenProps<TabBarParamList, "Cart">,
+  NativeStackScreenProps<AppStackParamList>
+>;
+export type HomeScreenProps = CompositeScreenProps<
+  BottomTabScreenProps<TabBarParamList, "Home">,
+  NativeStackScreenProps<AppStackParamList>
+>;
+
+export type FavouritesScreenProps = CompositeScreenProps<
+  BottomTabScreenProps<TabBarParamList, "Favourites">,
+  NativeStackScreenProps<AppStackParamList>
+>;
+
+export type ProfileScreenProp = CompositeScreenProps<
+  BottomTabScreenProps<TabBarParamList, "Profile">,
+  NativeStackScreenProps<AppStackParamList>
+>;
+
+const Stack = createNativeStackNavigator<AppStackParamList>();
 
 export default function StackNavigation() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Onboarding" component={OnboardingScreen} />
-        <Stack.Screen name="Welcome" component={WelcomeScreen} />
-        <Stack.Screen name="SignUp" component={SignUpScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <Stack.Navigator>
+      <Stack.Screen name="Tab" component={TabNavigator} />
+      <Stack.Screen name="Product" component={ProductScreen} />
+      <Stack.Screen name="Checkout" component={CheckoutScreen} />
+    </Stack.Navigator>
   );
 }
