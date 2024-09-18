@@ -1,17 +1,20 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
-import StackNavigation from "./navigation/stack/Stack";
+import { StyleSheet } from "react-native";
+import { Provider } from "react-redux";
 import { NavigationContainer } from "@react-navigation/native";
+import { store } from "./store";
 import TabNavigator from "./navigation/stack/Tab";
 import AuthStack from "./navigation/stack/AuthStack";
 
 export default function App() {
   const isSignedIn = false;
   return (
-    <NavigationContainer>
-      <TabNavigator />
-      {/* {isSignedIn ? <TabNavigator /> : <AuthStack />} */}
-    </NavigationContainer>
+    <Provider store={store}>
+      <NavigationContainer>
+        <TabNavigator />
+        {/* {isSignedIn ? <TabNavigator /> : <AuthStack />} */}
+      </NavigationContainer>
+    </Provider>
   );
 }
 
