@@ -1,6 +1,16 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-const initialState = {
+export type FavouriteType = {
+  _id: string;
+  image: string;
+  name: string;
+  price: number;
+};
+
+interface FavouriteState {
+  items: FavouriteType[];
+}
+const initialState: FavouriteState = {
   items: [],
 };
 
@@ -8,11 +18,22 @@ export const favouriteSlice = createSlice({
   name: "favourite",
   initialState,
   reducers: {
-    addToFavourite: (state, action) => {},
-    removeFromFavourites: (state, action) => {},
+    addToFavourites: (state, action: PayloadAction<FavouriteType>) => {
+      state.items = [...state.items, action.payload];
+      //add to favourites
+      //make backend call to add to favourites
+      //on failure, the item from favourites
+      //on success, let it remain in the favourites
+    },
+    removeFromFavourites: (state, action: PayloadAction<string>) => {
+      const updatedCart = state.items.filter(
+        (item) => item._id !== action.payload
+      );
+      state.items = updatedCart;
+    },
   },
 });
 
-const { addToFavourite, removeFromFavourites } = favouriteSlice.actions;
+export const { addToFavourites, removeFromFavourites } = favouriteSlice.actions;
 
 export default favouriteSlice.reducer;
