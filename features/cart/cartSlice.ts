@@ -1,7 +1,22 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+
 import { RootState } from "../../store";
 
-const initialState = {
+export type CartType = {
+  _id: string;
+  name: string;
+  price: number;
+  image: string;
+  color: string;
+  size: number;
+  quantity: number;
+};
+
+interface CartState {
+  items: CartType[];
+}
+
+const initialState: CartState = {
   items: [],
 };
 
@@ -9,16 +24,60 @@ export const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    addToCart: (state, action) => {
+    addToCart: (state, action: PayloadAction<CartType>) => {
       console.log("logic to update state");
+      //check length of cart
+      if (state.items.length < 1) {
+        state.items = [action.payload];
+      } else {
+        let updatedCart: CartType[];
+        //check if item with that id exists in the cart
+        const itemExist = state.items.find(
+          (item) => item._id === action.payload._id
+        );
+        if (itemExist) {
+          // increase the quantity
+          updatedCart = state.items.map((item) =>
+            item._id === action.payload._id
+              ? { ...item, quantity: item.quantity + action.payload.quantity }
+              : item
+          );
+          state.items = updatedCart;
+        } else {
+          state.items = [...state.items, action.payload];
+        }
+      }
     },
-    removeFromCart: (state, action) => {
-      console.log("logic to remove from cart");
+    removeFromCart: (state, action: PayloadAction<string>) => {
+      let updatedCart: CartType[];
+      updatedCart = state.items.filter((item) => item._id !== action.payload);
+      state.items = updatedCart;
+    },
+    incrementQuantity: (state, action: PayloadAction<string>) => {
+      let updatedCart: CartType[];
+      updatedCart = state.items.map((item) =>
+        item._id === action.payload
+          ? { ...item, quantity: item.quantity + 1 }
+          : item
+      );
+    },
+    decrementQuantity: (state, action: PayloadAction<string>) => {
+      let updatedCart: CartType[];
+      updatedCart = state.items.map((item) =>
+        item._id === action.payload
+          ? { ...item, quantity: item.quantity - 1 }
+          : item
+      );
     },
   },
 });
 
-export const { addToCart, removeFromCart } = cartSlice.actions;
+export const {
+  addToCart,
+  removeFromCart,
+  decrementQuantity,
+  incrementQuantity,
+} = cartSlice.actions;
 
 //get cart items
 export const getCart = (state: RootState) => state.cart.items;
