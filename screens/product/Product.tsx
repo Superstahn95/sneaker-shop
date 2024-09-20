@@ -14,6 +14,8 @@ import { products } from "../../assets/data";
 import SizeSelection from "./components/SizeSelection";
 import ColorSelection from "./components/ColorSelection";
 import ProductImagePreview from "./components/ProductImagePreview";
+import ProductControls from "./components/ProductControls";
+import QuantityController from "./components/QuantityController";
 
 const imagesArray = [
   require("../../assets/images/sneakers3.png"),
@@ -50,61 +52,69 @@ export default function ProductScreen({ route }: ProductScreenProps) {
   }, [productId]);
 
   return (
-    <ScrollView>
-      <Container>
-        <View style={styles.container}>
-          {/* image holder component */}
-          <ProductImagePreview />
-          {/* details container */}
-          <View>
-            <Text style={styles.name}>{product?.name}</Text>
-            <Text style={styles.description}>{product?.description}</Text>
-            <Text
+    <View>
+      <ScrollView style={{ backgroundColor: "white" }}>
+        <Container>
+          <View style={styles.container}>
+            {/* image holder component */}
+            <ProductImagePreview />
+            {/* details container */}
+            <View>
+              <Text style={styles.name}>{product?.name}</Text>
+              <Text style={styles.description}>{product?.description}</Text>
+              <Text
+                style={{
+                  color: Colors.primary,
+                  fontSize: 20,
+                  fontWeight: "semibold",
+                }}
+              >
+                ${product?.price}
+              </Text>
+            </View>
+            {/* sneakers images gallery */}
+            <FlatList
               style={{
-                color: Colors.primary,
-                fontSize: 20,
-                fontWeight: "semibold",
+                width: "100%",
+                marginTop: 10,
               }}
-            >
-              ${product?.price}
-            </Text>
-          </View>
-          {/* sneakers images gallery */}
-          <FlatList
-            style={{
-              width: "100%",
-              marginTop: 10,
-            }}
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            data={imagesArray}
-            ItemSeparatorComponent={() => <View style={{ width: 20 }} />}
-            renderItem={({ item }) => (
-              //   <View style={{ backgroundColor: "yellow",height: "auto" }}>
-              <Image source={item} style={{ width: 75, height: 50 }} />
-              //   </View>
-            )}
-          />
+              horizontal
+              showsHorizontalScrollIndicator={false}
+              data={imagesArray}
+              ItemSeparatorComponent={() => <View style={{ width: 20 }} />}
+              renderItem={({ item }) => (
+                //   <View style={{ backgroundColor: "yellow",height: "auto" }}>
+                <Image source={item} style={{ width: 75, height: 50 }} />
+                //   </View>
+              )}
+            />
 
-          {/* size selection => we need to get the minimum and maximum available size */}
-          <View style={{ marginTop: 8, width: "100%" }}>
-            <Text style={{ color: "#7E7E7E", fontSize: 16 }}>Select Size</Text>
-            <SizeSelection
-              sizes={numberArray}
-              selectedSize={selectedSize}
-              setSelectedSize={setSelectedSize}
-            />
+            {/* size selection => we need to get the minimum and maximum available size */}
+            <View style={{ marginTop: 8, width: "100%" }}>
+              <Text style={{ color: "#7E7E7E", fontSize: 16 }}>
+                Select Size
+              </Text>
+              <SizeSelection
+                sizes={numberArray}
+                selectedSize={selectedSize}
+                setSelectedSize={setSelectedSize}
+              />
+            </View>
+            <View style={{ width: "100%", marginVertical: 20 }}>
+              <ColorSelection
+                colors={colorsArray}
+                selectedColor={selectedColor}
+                setSelectedColor={setSelectedColor}
+              />
+            </View>
+            <View style={{ width: "100%", marginVertical: 20 }}>
+              <QuantityController />
+            </View>
           </View>
-          <View style={{ width: "100%", marginVertical: 20 }}>
-            <ColorSelection
-              colors={colorsArray}
-              selectedColor={selectedColor}
-              setSelectedColor={setSelectedColor}
-            />
-          </View>
-        </View>
-      </Container>
-    </ScrollView>
+        </Container>
+      </ScrollView>
+      <ProductControls />
+    </View>
   );
 }
 
