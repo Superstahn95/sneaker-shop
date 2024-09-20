@@ -15,7 +15,7 @@ import Categories from "./components/Categories";
 import Products from "./components/Products";
 
 // make a custom container responsible for handling padding across screens
-export default function HomeScreen({ navigation, route }: HomeScreenProps) {
+export default function HomeScreen({ navigation }: HomeScreenProps) {
   return (
     <SafeAreaView style={styles.container}>
       <Container>
@@ -39,7 +39,7 @@ export default function HomeScreen({ navigation, route }: HomeScreenProps) {
         {/* categories */}
         <Categories />
         {/* products */}
-        <Products />
+        <Products navigation={navigation} />
       </Container>
     </SafeAreaView>
   );

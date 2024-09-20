@@ -8,8 +8,7 @@ import { useNavigation } from "@react-navigation/native";
 //     navigation : BottomTabNavigationProp<AppStackParamList, "Home", undefined>
 // }
 
-export default function Products() {
-  const { navigation } = useNavigation<HomeScreenProps>();
+export default function Products({ navigation }) {
   // navigation.navigate("ProductStack",{params: {}})
   return (
     <View style={{ marginTop: 14, flex: 1 }}>
@@ -32,6 +31,7 @@ export default function Products() {
             name={item.name}
             index={index}
             _id={item._id}
+            navigation={navigation}
           />
         )}
       />

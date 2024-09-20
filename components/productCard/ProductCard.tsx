@@ -2,7 +2,10 @@ import { Colors } from "../../utils/colors";
 import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
 import { imageMap } from "../../assets/data";
 import { useNavigation } from "@react-navigation/native";
-import { ProductScreenProps } from "../../navigation/stack/types";
+import {
+  ProductScreenProps,
+  HomeScreenProps,
+} from "../../navigation/stack/types";
 
 type CardProps = {
   _id: string;
@@ -22,9 +25,8 @@ export default function ProductCard({
   price,
   index,
   _id,
+  navigation,
 }: CardProps) {
-  const { navigation } = useNavigation<ProductScreenProps>();
-
   let shoeText: string;
   if (gender.toLowerCase() === "men") {
     shoeText = "men's shoes";

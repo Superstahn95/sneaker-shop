@@ -18,7 +18,11 @@ const Stack = createNativeStackNavigator<AppStackParamList>();
 export default function StackNavigation() {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Tab" component={TabNavigator} />
+      <Stack.Screen
+        name="Tab"
+        component={TabNavigator}
+        options={{ headerShown: false }}
+      />
       <Stack.Screen name="Product" component={ProductScreen} />
       <Stack.Screen name="Checkout" component={CheckoutScreen} />
     </Stack.Navigator>

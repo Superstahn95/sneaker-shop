@@ -4,6 +4,7 @@ import { Provider } from "react-redux";
 import { NavigationContainer } from "@react-navigation/native";
 import { store } from "./store";
 import TabNavigator from "./navigation/stack/Tab";
+import StackNavigation from "./navigation/stack/Stack";
 import AuthStack from "./navigation/stack/AuthStack";
 
 export default function App() {
@@ -11,7 +12,7 @@ export default function App() {
   return (
     <Provider store={store}>
       <NavigationContainer>
-        <TabNavigator />
+        <StackNavigation />
         {/* {isSignedIn ? <TabNavigator /> : <AuthStack />} */}
       </NavigationContainer>
     </Provider>
