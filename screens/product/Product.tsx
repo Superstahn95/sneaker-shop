@@ -52,10 +52,10 @@ export default function ProductScreen({ route }: ProductScreenProps) {
   }, [productId]);
 
   return (
-    <View>
-      <ScrollView style={{ backgroundColor: "white" }}>
+    <View style={{ flex: 1 }}>
+      <ScrollView style={{ backgroundColor: "white", flex: 1 }}>
         <Container>
-          <View style={styles.container}>
+          <View style={[styles.container, { flex: 1 }]}>
             {/* image holder component */}
             <ProductImagePreview />
             {/* details container */}

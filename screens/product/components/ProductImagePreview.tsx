@@ -1,11 +1,55 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View, Dimensions, Image, Text } from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
+
+const { width } = Dimensions.get("window");
 
 export default function ProductImagePreview() {
   return (
-    <View style={{ width: "100%", height: 300 }}>
-      <Text>ProductImagePreview</Text>
+    <View style={styles.container}>
+      <Image
+        source={require("../../../assets/images/sneakers9.png")}
+        style={styles.image}
+      />
+      <LinearGradient style={styles.sphere} colors={["#FFFFFF", "#666666"]}>
+        {/* <Text style={{ fontSize: 20, fontWeight: "bold" }}>
+          What are we doing today??
+        </Text> */}
+      </LinearGradient>
     </View>
   );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    height: 300,
+    width: "100%",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  sphere: {
+    // width: width * 0.4,
+    width: 150,
+    height: 150,
+    // height: width * 0.4,
+    // borderRadius: (width * 0.4) / 2,
+    borderRadius: 150 / 2,
+    backgroundColor: "#C4C4C4",
+    transform: [{ scaleX: 2.3 }],
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 70,
+    // overflow: "visible",
+    position: "relative",
+  },
+  image: {
+    position: "absolute",
+    bottom: 80, // Adjust this value to move the image higher or lower
+    //  left: 0, // Adjust this to position the image horizontally
+    resizeMode: "cover",
+    width: 400,
+    height: 300,
+    transform: [{ rotateZ: "-15deg" }], // Keep or adjust this as needed
+    // backgroundColor: "red",
+    zIndex: 99,
+  },
+});
