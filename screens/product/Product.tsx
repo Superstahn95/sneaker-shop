@@ -17,6 +17,8 @@ import ProductImagePreview from "./components/ProductImagePreview";
 import ProductControls from "./components/ProductControls";
 import QuantityController from "./components/QuantityController";
 
+//modifications to be made to parameters passed into product controls
+
 const imagesArray = [
   require("../../assets/images/sneakers3.png"),
   require("../../assets/images/sneakers2.png"),
@@ -41,6 +43,7 @@ export default function ProductScreen({ route }: ProductScreenProps) {
   const { productId } = route.params;
   const [loading, setLoading] = useState<Boolean>(false);
   const [product, setProduct] = useState<ProductType | null>(null);
+  const [quantity, setQuantity] = useState(1);
   // default selectedSize should be the smallest available size in our array of numbers
   const [selectedSize, setSelectedSize] = useState<number | null>(null);
   const [selectedColor, setSelectedColor] = useState<string | null>(null);
@@ -51,6 +54,9 @@ export default function ProductScreen({ route }: ProductScreenProps) {
     setSelectedColor(colorsArray[0]);
   }, [productId]);
 
+  if (loading) return <Text>Loading....</Text>;
+  if (error) return <Text>Error....</Text>;
+  if (!product) return <Text>No such product....</Text>;
   return (
     <View style={{ flex: 1 }}>
       <ScrollView style={{ backgroundColor: "white", flex: 1 }}>
@@ -108,12 +114,26 @@ export default function ProductScreen({ route }: ProductScreenProps) {
               />
             </View>
             <View style={{ width: "100%", marginVertical: 20 }}>
-              <QuantityController />
+              <QuantityController
+                _id={product?._id}
+                quantity={quantity}
+                setQuantity={setQuantity}
+              />
             </View>
           </View>
         </Container>
       </ScrollView>
-      <ProductControls />
+      {product && (
+        <ProductControls
+          _id={product._id}
+          quantity={quantity}
+          color={selectedColor || "black"}
+          image={product.image}
+          name={product.name}
+          price={product.price}
+          size={selectedSize || 33}
+        />
+      )}
     </View>
   );
 }
