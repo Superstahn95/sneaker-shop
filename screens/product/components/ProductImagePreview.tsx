@@ -43,13 +43,11 @@ const styles = StyleSheet.create({
   },
   image: {
     position: "absolute",
-    bottom: 80, // Adjust this value to move the image higher or lower
-    //  left: 0, // Adjust this to position the image horizontally
+    bottom: 80,
     resizeMode: "cover",
     width: 400,
     height: 300,
-    transform: [{ rotateZ: "-15deg" }], // Keep or adjust this as needed
-    // backgroundColor: "red",
+    transform: [{ rotateZ: "-15deg" }],
     zIndex: 99,
   },
 });

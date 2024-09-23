@@ -11,7 +11,9 @@ export default function RegistrationSuccessScreen({
   //automatically redirect to home screen
   useEffect(() => {
     setTimeout(() => {
-      navigation.navigate("Home");
+      //take user to home page
+      console.log("take user to home page");
+      //   navigation.navigate("");
     }, 5000);
   }, []);
   return (
