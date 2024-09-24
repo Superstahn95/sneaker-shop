@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { RootState } from "../../store";
 
 export type FavouriteType = {
   _id: string;
@@ -35,5 +36,7 @@ export const favouriteSlice = createSlice({
 });
 
 export const { addToFavourites, removeFromFavourites } = favouriteSlice.actions;
+export const getSingleFavouriteItem = (state: RootState, id: string) =>
+  state.favourite.items.find((item) => item._id === id);
 
 export default favouriteSlice.reducer;

@@ -81,5 +81,8 @@ export const {
 
 //get cart items
 export const getCart = (state: RootState) => state.cart.items;
+//get a single item in cart
+export const getSingleItem = (state: RootState, id: string) =>
+  state.cart.items.find((item) => item._id === id);
 
 export default cartSlice.reducer;
