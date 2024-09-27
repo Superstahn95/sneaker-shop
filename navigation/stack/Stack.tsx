@@ -23,7 +23,11 @@ export default function StackNavigation() {
         component={TabNavigator}
         options={{ headerShown: false }}
       />
-      <Stack.Screen name="Product" component={ProductScreen} />
+      <Stack.Screen
+        name="Product"
+        component={ProductScreen}
+        options={{ headerBackTitleVisible: false }}
+      />
       <Stack.Screen name="Checkout" component={CheckoutScreen} />
     </Stack.Navigator>
   );

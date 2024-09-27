@@ -52,7 +52,11 @@ export default function TabNavigator() {
         component={HomeScreen}
         options={{ headerShown: false }}
       />
-      <Tab.Screen name="Cart" component={CartScreen} />
+      <Tab.Screen
+        name="Cart"
+        component={CartScreen}
+        options={{ title: "Cart Preview" }}
+      />
       <Tab.Screen name="Favourites" component={FavouritesScreen} />
       <Tab.Screen name="Profile" component={ProfileScreen} />
     </Tab.Navigator>

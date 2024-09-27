@@ -53,9 +53,6 @@ export default function ProductCard({
           width: "100%",
           justifyContent: "center",
           alignItems: "center",
-          //   backgroundColor: "red",
-          //   marginTop: 40,
-          //   height: 300,
         }}
       >
         <Image
