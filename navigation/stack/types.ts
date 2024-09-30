@@ -38,6 +38,7 @@ export type AppStackParamList = {
   Tab: NavigatorScreenParams<TabBarParamList>;
   Product: { productId: string };
   Checkout: undefined;
+  Shipping: undefined;
 };
 
 export type OtpScreenProps = NativeStackScreenProps<AuthStackParamList, "Otp">;
@@ -93,4 +94,9 @@ export type FavouritesScreenProps = CompositeScreenProps<
 export type ProfileScreenProp = CompositeScreenProps<
   BottomTabScreenProps<TabBarParamList, "Profile">,
   NativeStackScreenProps<AppStackParamList>
+>;
+
+export type ShippingDetailsScreenProp = NativeStackScreenProps<
+  AppStackParamList,
+  "Shipping"
 >;

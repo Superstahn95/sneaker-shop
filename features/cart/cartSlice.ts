@@ -84,5 +84,15 @@ export const getCart = (state: RootState) => state.cart.items;
 //get a single item in cart
 export const getSingleItem = (state: RootState, id: string) =>
   state.cart.items.find((item) => item._id === id);
-
+export const getCartTotal = (state: RootState) => {
+  const prices = state.cart.items.map((item) => item.price * item.quantity);
+  const total = prices.reduce((acc, curr) => acc + curr, 0);
+  return total;
+};
 export default cartSlice.reducer;
+// callbackfn(previousValue: CartType, currentValue: CartType, currentIndex: number, array: CartType[]): CartType
+// export const getTotalCartAmount = (state) =>
+//   state.cart.cart.reduce(
+//     (total, item) => (total += item.price * item.quantity),
+//     0
+//   );

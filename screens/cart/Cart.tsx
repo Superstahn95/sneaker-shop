@@ -1,18 +1,13 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-  TouchableOpacity,
-  ScrollView,
-} from "react-native";
+import { StyleSheet, Text, View, ScrollView } from "react-native";
 import { getCart } from "../../features/cart/cartSlice";
 import { useAppSelector } from "../../hooks/redux";
 import Button from "../../components/button/Button";
 import Container from "../../components/container/Container";
 import CartItem from "./components/CartItem";
 import RelatedProducts from "./components/RelatedProducts";
+import { CartScreenProps } from "../../navigation/stack/types";
 
-export default function CartScreen() {
+export default function CartScreen({ navigation }: CartScreenProps) {
   const cartItems = useAppSelector((state) => getCart(state));
   return (
     <View style={{ backgroundColor: "white", flex: 1 }}>
@@ -61,7 +56,7 @@ export default function CartScreen() {
             <View style={{ flex: 1 }}>
               <Button
                 title={"checkout"}
-                onPress={() => console.log("go to checkout")}
+                onPress={() => navigation.navigate("Shipping")}
                 isFilled
               />
             </View>

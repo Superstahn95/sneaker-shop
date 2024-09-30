@@ -12,6 +12,7 @@ import { AppStackParamList } from "./types";
 import TabNavigator from "./Tab";
 import ProductScreen from "../../screens/product/Product";
 import CheckoutScreen from "../../screens/checkout/Checkout";
+import ShippingDetails from "../../screens/ShippingDetails/ShippingDetails";
 
 const Stack = createNativeStackNavigator<AppStackParamList>();
 
@@ -28,7 +29,16 @@ export default function StackNavigation() {
         component={ProductScreen}
         options={{ headerBackTitleVisible: false }}
       />
-      <Stack.Screen name="Checkout" component={CheckoutScreen} />
+      <Stack.Screen
+        name="Checkout"
+        component={CheckoutScreen}
+        options={{ headerBackTitleVisible: false, title: "Order Summary" }}
+      />
+      <Stack.Screen
+        name="Shipping"
+        component={ShippingDetails}
+        options={{ headerBackTitleVisible: false, title: "Shipping Address" }}
+      />
     </Stack.Navigator>
   );
 }

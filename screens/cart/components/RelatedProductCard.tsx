@@ -38,6 +38,7 @@ export default function RelatedProductCard({
           backgroundColor: "#F0F0F0",
           justifyContent: "center",
           alignItems: "center",
+          borderRadius: 8,
         }}
       >
         <Image

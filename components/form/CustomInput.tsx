@@ -16,7 +16,7 @@ export default function CustomInput({
   setValue,
 }: CustomInputProps) {
   return (
-    <View style={{ marginTop: 16 }}>
+    <View style={{ marginTop: 16, flex: 1 }}>
       <Text style={styles.label}>
         {label} {isRequired && <Text style={styles.requiredText}>*</Text>}
       </Text>
