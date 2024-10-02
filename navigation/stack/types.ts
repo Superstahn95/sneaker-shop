@@ -39,6 +39,7 @@ export type AppStackParamList = {
   Product: { productId: string };
   Checkout: undefined;
   Shipping: undefined;
+  PaymentOptions: undefined;
 };
 
 export type OtpScreenProps = NativeStackScreenProps<AuthStackParamList, "Otp">;
@@ -99,4 +100,9 @@ export type ProfileScreenProp = CompositeScreenProps<
 export type ShippingDetailsScreenProp = NativeStackScreenProps<
   AppStackParamList,
   "Shipping"
+>;
+
+export type PaymentOptionScreenProps = NativeStackScreenProps<
+  AppStackParamList,
+  "PaymentOptions"
 >;

@@ -83,3 +83,76 @@ export const discountItems = [
     percentageDiscount: 70,
   },
 ];
+
+export const payOptions = [
+  {
+    option: "Pay with Debit Card",
+    image: require("./images/mastercard.png"),
+    keyword: "card",
+  },
+  {
+    option: "Pay with Paypal",
+    image: require("./images/paypal.png"),
+    keyword: "paypal",
+  },
+  {
+    option: "Pay with Apple Pay",
+    image: require("./images/apple.png"),
+    keyword: "applePay",
+  },
+  {
+    option: "Pay on Delivery",
+    image: require("./images/delivery.png"),
+    keyword: "delivery",
+  },
+];
+
+// export class BackgroundImage {
+//   private static images: Array<Image> = [
+//     {
+//       name: 'background1.jpg',
+//       image: require('../assets/images/background1.jpg'),
+//     },
+//     {
+//       name: 'background2.jpg',
+//       image: require('../assets/images/background2.jpg'),
+//     },
+//     {
+//       name: 'background3.jpg',
+//       image: require('../assets/images/background3.jpg'),
+//     },
+//     {
+//       name: 'background4.jpg',
+//       image: require('../assets/images/background4.jpg'),
+//     },
+//     {
+//       name: 'background5.jpg',
+//       image: require('../assets/images/background5.jpg'),
+//     },
+//     {
+//       name: 'background6.jpg',
+//       image: require('../assets/images/background6.jpg'),
+//     },
+//     {
+//       name: 'background7.jpg',
+//       image: require('../assets/images/background7.jpg'),
+//     },
+//     {
+//       name: 'background8.jpg',
+//       image: require('../assets/images/background8.jpg'),
+//     },
+//     {
+//       name: 'background9.jpg',
+//       image: require('../assets/images/background9.jpg'),
+//     },
+//     {
+//       name: 'background10.jpg',
+//       image: require('../assets/images/background10.jpg'),
+//     },
+//   ];
+
+//   static GetImage = (name: string) => {
+//     const found = BackgroundImage.images.find(e => e.name === name);
+//     return found ? found.image : null;
+//   };
+// }

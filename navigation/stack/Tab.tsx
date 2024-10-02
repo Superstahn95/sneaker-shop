@@ -5,9 +5,7 @@ import HomeScreen from "../../screens/home/Home";
 import FavouritesScreen from "../../screens/favourites/Favourites";
 import ProfileScreen from "../../screens/profile/Profile";
 import { Colors } from "../../utils/colors";
-import { Text } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 
 const Tab = createBottomTabNavigator<TabBarParamList>();

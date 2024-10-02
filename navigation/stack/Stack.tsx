@@ -1,18 +1,10 @@
-import {
-  CompositeScreenProps,
-  NavigationContainer,
-  NavigatorScreenParams,
-} from "@react-navigation/native";
-import {
-  createNativeStackNavigator,
-  NativeStackScreenProps,
-} from "@react-navigation/native-stack";
-import { BottomTabScreenProps } from "@react-navigation/bottom-tabs";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { AppStackParamList } from "./types";
 import TabNavigator from "./Tab";
 import ProductScreen from "../../screens/product/Product";
 import CheckoutScreen from "../../screens/checkout/Checkout";
 import ShippingDetails from "../../screens/ShippingDetails/ShippingDetails";
+import PaymentOptions from "../../screens/paymentOptions/PaymentOptions";
 
 const Stack = createNativeStackNavigator<AppStackParamList>();
 
@@ -38,6 +30,11 @@ export default function StackNavigation() {
         name="Shipping"
         component={ShippingDetails}
         options={{ headerBackTitleVisible: false, title: "Shipping Address" }}
+      />
+      <Stack.Screen
+        name="PaymentOptions"
+        component={PaymentOptions}
+        options={{ headerBackTitleVisible: false, title: "Payment Method" }}
       />
     </Stack.Navigator>
   );

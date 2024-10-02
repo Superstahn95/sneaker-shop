@@ -34,7 +34,7 @@ export default function CheckoutScreen({ navigation }: CheckOutScreenProps) {
           <DescriptionText description={"Total Order"} figure={totalOrder} />
 
           <Button
-            onPress={() => console.log("Place Order")}
+            onPress={() => navigation.navigate("PaymentOptions")}
             title="Place Order"
             isFilled
           />
