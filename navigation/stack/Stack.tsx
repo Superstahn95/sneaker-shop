@@ -5,6 +5,7 @@ import ProductScreen from "../../screens/product/Product";
 import CheckoutScreen from "../../screens/checkout/Checkout";
 import ShippingDetails from "../../screens/ShippingDetails/ShippingDetails";
 import PaymentOptions from "../../screens/paymentOptions/PaymentOptions";
+import OrderSucess from "../../screens/OrderSuccess/OrderSucess";
 
 const Stack = createNativeStackNavigator<AppStackParamList>();
 
@@ -35,6 +36,11 @@ export default function StackNavigation() {
         name="PaymentOptions"
         component={PaymentOptions}
         options={{ headerBackTitleVisible: false, title: "Payment Method" }}
+      />
+      <Stack.Screen
+        name="OrderSuccess"
+        component={OrderSucess}
+        options={{ headerShown: false }}
       />
     </Stack.Navigator>
   );
